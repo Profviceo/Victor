@@ -499,6 +499,10 @@ footer{
     section.contact{
         height: 600px;
         flex-direction: column;
+
+        .contact-form{
+            width: 95%!important;
+        }
     }
 
     section.request{
