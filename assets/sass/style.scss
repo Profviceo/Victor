@@ -1,0 +1,555 @@
+@import  "./utils/config";
+html,body{
+    height: 100%;
+}
+
+section.features{
+    background: $opaque;
+    margin-top: 43px;
+
+    h1,p{
+        color: $primary-color!important;
+    }
+
+
+    section.cards{
+        p,h1,h2{
+            color: $secondary-color!important;
+        }
+
+        img{
+            box-shadow: 0px 0px 20px $opaque;
+            border-radius: 10px;
+            width: 100%;
+            height: 200px;
+        }
+
+
+        .header{
+            font-size: 23px;
+            font-weight: bold;
+            border-bottom: 1px solid $secondary-color;
+            padding-bottom: 5px;
+            margin-bottom: 5px;
+        }
+
+        .description{
+            font-size: 15px;
+        }
+    }
+}
+
+section.single{
+    p{
+        padding: 10px;
+        font-size: 15px;
+        margin: 20px auto;
+    }
+
+    img{
+        box-shadow: 0px 0px 20px $opaque;
+        border-radius: 20px;
+        width: 100%;
+    }
+
+    img.img-thumbnail{
+        @extend img;
+        width: 70%;
+        margin: 1px auto;
+        display: block;
+    }
+
+    figcaption{
+        width: fit-content;
+        border-radius: 10px;
+        font-style: italic;
+        text-align: center;
+    }
+}
+
+.comment-reply-title, #comments{
+    box-shadow: 0px 0px 10px $opaque;
+    padding: 10px;
+    margin: 20px auto;
+}
+
+
+ol.commentlist{
+    @extend .comment-reply-title;
+    padding: 20px;
+
+    li{
+        margin: 10px auto;
+        @extend .comment-reply-title;
+    }
+
+    a,cite{
+        color: darken($secondary-color, 40);
+        font-style: italic;
+        font-size: 15px !important;
+    }
+
+    img{
+        width: 100px;
+        box-shadow: none;
+    }
+
+    div.comment-body{
+        p{
+            border-bottom: 1px solid $secondary-color;
+            font-size:17px;
+            border-radius: 20px;
+        }
+    }
+
+    div.reply{
+        text-align: right;
+
+        a{
+            display: inline-block;
+            @include setTextBackground($secondary-color);
+            @extend .comment-reply-title;
+            margin: 10px auto;
+            border-radius: 10px;
+            transition: $fade;
+
+            &:hover{
+                @include setTextBackground($primary-color);
+            }
+        }   
+    } 
+}
+
+div.comment-respond{
+    form{
+        box-shadow: 0px 0px 10px $opaque;
+        padding: 10px;
+
+        p{
+            input,textarea{
+                width: 100%;
+                @extend .comment-reply-title;
+                border: 1px solid $secondary-color;
+                border-radius: 10px;
+                
+            }
+
+            input[type="checkbox"]{
+                width: 0%;
+            }
+
+            input[type="submit"]{
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+section.sidebar{
+    height: 100%;
+    list-style-type: none;
+}
+
+.widget{
+    margin: 10px auto;
+    border-bottom: 3px dotted $secondary-color;
+    padding-bottom: 10px;
+
+    h2{
+        font-size: 1.5rem;
+        text-transform: uppercase;
+        text-align: center;
+        padding: 10px 15px;
+        color: $primary-color;
+    }        
+}
+
+.widget_search{
+    form{
+        @extend .comment-reply-title;
+        margin: 5px auto;
+
+        label{
+            display: none;
+        }
+
+        input[type="text"]{
+            height: 30px;
+            width: 70%;
+            border: 1px solid $secondary-color;
+            box-shadow: 0px 0px 2px $opaque;
+            border-radius: 10px;
+            padding: 10px;
+        }
+
+        input[type="submit"]{
+            @include setTextBackground($primary-color);
+            border-radius: 10px;
+            padding:5px 10px;
+            border: none;
+            cursor: pointer;
+        }
+    }
+}
+
+.widget_recent_entries{
+    ul{
+        list-style-type: square;
+        color: $primary-color;
+
+        li{
+            @extend .comment-reply-title;
+            display: flex;
+            flex-direction: column;
+            padding: 10px 20px;
+            cursor: pointer;
+            @include setTextBackground($secondary-color);
+            transition: $fade;
+
+            a{
+                font-size: 17px;
+                color: lighten($primary-color,10);
+            }
+
+            span{
+                color: grey;
+                font-style: italic;
+            }
+
+            &:hover{
+                @include setTextBackground(white);
+            }
+        }
+    }
+}
+
+.widget_categories{
+
+    ul{
+        list-style: none;
+
+        li a{
+            display: inline-block;
+            @extend .comment-reply-title;
+            @include setTextBackground(white);
+            text-transform: capitalize;
+            margin: 5px auto;
+            width: 100%;
+            border-radius: 20px;
+            border: 1px solid $secondary-color;
+            text-align: center;
+            transition:  $fade;
+
+            &::after{
+                content: ' Category';
+            }
+
+            &:hover{
+                @include setTextBackground($secondary-color);
+            }
+        }
+    }   
+}
+
+section.about{
+    .main{
+       margin: 20px auto; 
+
+        .about-text{
+            padding: 10px 10px 10px 30px;
+
+            .text{
+                @include setTextBackground(white);
+                padding: 10px;
+                border-radius: 10px;
+
+                p{
+                    font-size: 17px;
+                    line-height: 25px;
+                    text-indent: 20px;
+                }                
+
+                ul{
+                    padding: 10px 25px;
+                    list-style-type: none;
+
+                    li{
+                        &::before{
+                            content: "</> ";
+                        }
+                    }
+                }
+            }
+
+        }
+
+        div.img{
+            width: 300px;
+            height: 300px;
+            background-image: url("../img/viceo.jpg");
+            background-size: 300px;
+            border-radius: 20px;
+            transition: 1s background-image ease ;
+            
+
+            &:hover{
+                background-image: url("../img/viceo1.jpg");
+            }
+        }
+    }
+
+    section.tools{
+        svg{
+            fill: $secondary-color;
+            width: 50px;
+            height: 50px;
+        }
+    }
+}
+
+
+section.contact{
+    position: relative;
+    height: 400px;
+    
+    .title,.title-sm{
+        color: $primary-color!important;
+    }
+
+    &::after{
+        content: " ";
+        height: 100px;
+        width: 100%;
+        background-color: $primary-color;
+        position: absolute;
+        left: 0;
+        transform: skewY(-1deg);
+        bottom: -70px;
+        z-index: 10
+    }
+
+    section.contact-form{
+        position: relative;
+        z-index: 11;
+        height: 400px;
+        box-shadow: 0px 15px 15px $opaque;
+        width: 400px;
+        transform: translateY(30px);
+
+
+        div.form-group{
+            width: 100%;
+
+            label{
+                display: block;
+                padding-left: 10px;
+            }
+
+            input{
+                width: 100%;
+                height: 40px;
+                margin: 10px auto;
+                padding: 10px;
+                border: 1px solid $secondary-color;
+                border-radius: 10px;
+                box-shadow: 0px 10px 10px $opaque;
+            }
+
+            textarea{
+                width: 100%;
+                height: 100px;
+                margin: 10px auto;
+                padding: 10px;
+                border: 1px solid $secondary-color;
+                border-radius: 10px;
+                box-shadow: 0px 10px 10px $opaque;
+            }
+
+        }
+    }
+}
+
+
+section.contact{
+    position: relative;
+    height: 400px;
+    
+    .title,.title-sm{
+        color: $primary-color!important;
+    }
+
+    &::after{
+        content: " ";
+        height: 100px;
+        width: 100%;
+        background-color: $primary-color;
+        position: absolute;
+        left: 0;
+        transform: skewY(-1deg);
+        bottom: -70px;
+        z-index: 10
+    }
+
+    section.contact-form{
+        position: relative;
+        z-index: 11;
+        height: 400px;
+        box-shadow: 0px 15px 15px $opaque;
+        width: 400px;
+        transform: translateY(30px);
+
+
+        div.form-group{
+            width: 100%;
+
+            label{
+                display: block;
+                padding-left: 10px;
+            }
+
+            input,select{
+                width: 100%;
+                height: 40px;
+                margin: 10px auto;
+                padding: 10px;
+                border: 1px solid $secondary-color;
+                border-radius: 10px;
+                box-shadow: 0px 10px 10px $opaque;
+            }
+
+            textarea{
+                width: 100%;
+                height: 100px;
+                margin: 10px auto;
+                padding: 10px;
+                border: 1px solid $secondary-color;
+                border-radius: 10px;
+                box-shadow: 0px 10px 10px $opaque;
+            }
+
+        }
+    }
+}
+
+section.request{
+    height: 600px;
+
+    section.contact-form{
+        height: 100%;
+        transform: translateY(10px);
+    }
+}
+
+
+footer{
+    margin-top: 100px;
+    svg{
+        width: 30px;
+        height: 30px;
+        fill: $secondary-color;
+    }
+}
+
+
+
+
+
+
+
+// media queries down below
+
+@media screen and (max-width: 768px){
+    section.single{
+        flex-direction: column;
+
+        section.main{
+            width: 100%!important;
+            margin-bottom: 10px;
+        }
+    }
+
+    section.blog{
+        .card{
+            width: 90%!important;
+        }
+    }
+
+    section.about{
+        .main{
+            width: 100%!important;
+            flex-direction: column;
+        }
+
+        section.tools{
+
+            .tools-svg-container{
+                text-align: center;
+                margin: 10px auto;
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr;            
+                
+                svg{
+                    margin: 10px auto;
+                }
+            }
+
+        }
+    }
+
+    section.contact{
+        height: 600px;
+        flex-direction: column;
+    }
+
+    section.request{
+        height: 100%;
+
+        .contact-text{
+            width: 100%!important;
+        }
+    }
+
+    footer{
+        flex-direction: column;
+
+        section.socials{
+            margin-top: 20px;
+        }
+    }
+}
+
+
+
+@media screen and (min-width: 768px){
+    section.features{
+        margin-top: 100px;
+        padding-top: 30px;
+
+        section.cards{
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr; 
+
+            div.card{
+                margin: 20px 10px;
+            }
+        }   
+    }
+
+    section#portfolio{
+        @include setTextBackground(rgba(194, 189, 189, 0.8));
+        background-image: url("../img/jakebook.png");
+        background-blend-mode: overlay;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
+    }
+
+    section.blog{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+
+        .card{
+            margin: 10px;
+        }
+    }
+}

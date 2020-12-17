@@ -1,0 +1,476 @@
+@import 'config';
+
+.bg-primary{
+    @include setTextBackground($primary-color);
+}
+
+.text-primary{
+    color: $primary-color;
+}
+
+.bg-secondary{
+    @include setTextBackground($secondary-color);
+}
+
+.bg-primary{
+    color: $secondary-color;
+}
+
+.bg-light{
+    @include setTextBackground($light-color);
+}
+
+.bg-white{
+    @include setTextBackground(white);
+}
+
+.bg-dark{
+    @include setTextBackground($dark-color);
+}
+
+.bg-danger{
+    @include setTextBackground($red);
+}
+
+.bg-success{
+    @include setTextBackground($green);
+}
+
+hr{
+    color: $secondary-color;
+}
+
+p{
+    font-size: 20px;
+}
+
+a{
+    text-decoration: none;
+    outline: none;
+}
+
+li,input, textarea{
+    outline: none;
+}
+
+input, textarea, select{
+    transition: $fade;
+    
+    &:hover{
+        box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.5)!important ;
+    }
+}
+.container{
+    width: 80%;
+    margin: auto;
+}
+
+.container-full{
+    width: 100%;
+}
+
+img{
+    width: 100%;
+}
+
+//margin and padding functionality 
+$listNum: (0,1,2,3,4,5);
+@each $num in $listNum{
+    .p-#{$num}{
+        padding: #{$num}rem;
+    }
+
+    .pl-#{$num}{
+        padding-left: #{$num}rem;
+    }
+
+    .pr-#{$num}{
+        padding-right: #{$num}rem;
+    }
+
+    .pt-#{$num}{
+        padding-top: #{$num}rem;
+    }
+
+    .pb-#{$num}{
+        padding-bottom: #{$num}rem;
+    }
+
+    .m-#{$num}{
+        margin: #{$num}rem;
+    }
+
+    .ml-#{$num}{
+        margin-left: #{$num}rem;
+    }
+
+    .mr-#{$num}{
+        margin-right: #{$num}rem;
+    }
+
+    .mt-#{$num}{
+        margin-top: #{$num}rem;
+    }
+
+    .mb-#{$num}{
+        margin-bottom: #{$num}rem!important;
+    }
+
+    .px-#{$num}{
+        padding: #{$num}rem 0;
+    }
+
+    .py-#{$num}{
+        padding: 0 #{$num}rem ;
+    }
+
+    .mx-#{$num}{
+        margin: #{$num}rem 0;
+    }
+    .my-#{$num}{
+        padding:0 #{$num}rem ;
+    }
+}
+
+
+
+.m-auto{
+    margin: auto!important;
+}
+
+.dont-break{
+    overflow-wrap:break-word;
+    word-wrap: break-word;
+    -ms-word-break: break-all;
+    word-break: break-word;
+    -ms-hyphens: auto;
+    -moz-hyphens: auto;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+
+}
+
+.p-auto{
+    padding: auto;
+}
+
+.m-body{
+    margin-top: 50px;
+}
+//buttons
+%btn{
+    display: inline;
+    width: 120px;
+    height: 60px;
+    outline: none;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: $fade;
+    padding: 5px 20px;
+    font-size: 15px;
+    font-weight: bold;
+
+    &:hover{
+        border-color: inherit;
+    }
+}
+
+.button{
+    @extend %btn;
+}
+.btn-forward{
+    display: inline-block;
+    text-align: center;
+    @include setTextBackground($secondary-color);
+    box-shadow: 0px 10px 10px $opaque;
+    padding: 10px 20px;
+    width: 180px;
+    display: flex;
+    justify-content: center;
+    justify-self: center;
+    align-items: center;
+    border-radius: 20px;
+    margin: 10px auto;
+    border: none;
+    cursor: pointer;
+
+    &::after{
+        width: 40%;
+        color: green;
+        content: url('../svg/arrow-right.svg');
+    }
+
+    &:hover{
+        transition: $fade;
+        @include setTextBackground(white);
+        box-shadow: $shadow;
+    }
+}
+
+.btn-trans{
+   
+    &:hover{
+        transform: translateY(10px);
+        box-shadow: 0px 5px 20px rgba(128, 128, 128, 0.1);
+    } 
+}
+
+.button-primary{
+    @extend %btn;
+    @include setTextBackground($primary-color);
+
+    &:hover{
+        @include setTextBackground($secondary-color);
+        box-shadow: 1px 2px 6px $secondary-color;
+    }
+}
+
+.button-secondary{
+    @extend %btn;
+    @include setTextBackground($secondary-color);
+
+    &:hover{
+        @Include setTextBackground($primary-color);
+        box-shadow: 1px 2px 6px $primary-color;
+    }
+}
+//button end
+
+//display flex functionality
+%flex{
+    display: flex;
+}
+.flex{
+    @extend %flex;
+}
+
+.flex-around{
+    @extend %flex;
+    justify-content: space-around;
+}
+
+.flex-between{
+    @extend %flex;
+    justify-content: space-between;
+}
+
+.flex-center{
+    @extend %flex;
+    justify-content: center;
+}
+
+.align-items-center{
+    align-items: center;
+}
+
+.align-items-end{
+    align-items: flex-end;
+}
+
+.align-items-start{
+    align-items: flex-start;
+}
+
+.shadow{
+    box-shadow: 1px 2px 6px $dark-color;
+}
+
+.shadow-lg{
+    box-shadow: 3px 3px 20px $dark-color;
+}
+
+.shadow-sm{
+    box-shadow: .4px 1px 3px $dark-color;
+}
+
+.shadow-ts{
+    box-shadow: 0px 0px 10px $opaque;
+}
+
+.rounded{
+    border-radius: 10px;
+}
+
+.d-none{
+    display: none;
+}
+
+.title{
+    font-size: 30px;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 10px 15px;
+    color: wheat;
+}
+
+.title-sm{
+    font-size: 20px;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 10px 15px;
+    color: wheat;
+}
+
+.capitalize{
+    text-transform: capitalize;
+}
+
+.uppercase{
+    text-transform: uppercase;
+}
+
+.center{
+    text-align: center;
+}
+
+
+.message{
+    // padding: 15px;
+    position: fixed;
+    top: 60px;
+    right: 0;
+    font-weight: 400;
+    width: 400px;
+    font-size: 1rem;
+    line-height: 1.6;
+    font-family: "Nunito", sans-serif;
+    border-radius: 10px;
+    @include alert($light-color);
+    display: flex;
+    justify-content: space-between;
+    animation: 1s message forwards;
+    margin-right: 2px;
+    z-index: 2000000000;
+     
+    div{
+        
+        padding: 0px 15px;
+        display: flex;
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;
+        // height: 100%;
+
+        svg{
+            align-self: center;
+            width: 30px;
+            height: 30px;
+        }
+    }
+    
+    span{
+        padding: 14px;
+        align-self: center;
+    }
+
+    a.close{
+        padding: 0px 7px!important;
+        font-size: 30px!important;
+        opacity: .7!important;
+        align-self: center!important;
+
+        &:hover{
+            opacity: 1!important;
+        }
+    }
+
+    @keyframes message {
+        0%{right: 0px;}
+        20%{right: 20px;}
+        40%{right: 0px;}
+        60%{right: 20px;}
+        80%{right: 0px;}
+        100%{right: 0px;}
+    }
+}
+
+.message-success{
+    @include alert($green);
+}
+
+.message-danger{
+    @include alert($red);
+}
+
+.message-warning{
+    @include alert($orange);
+}
+
+.message-info{
+    @include alert(blue);
+}
+
+
+.modal{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    background-color: $dark-color;
+
+    .modal-container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+
+        .modal-content{
+            width: 30%;
+            transform: translateY(-50px);
+        }
+    }
+}
+
+
+.fade{
+    transition: .5s all;
+}
+
+.card{
+    @include setTextBackground($primary-color);
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: $fade;
+    margin: 15px auto;
+    box-shadow: 0px 10px 10px $primary-color;
+
+    &:hover{
+        transform: translateY(-10px);
+        box-shadow: 0px 10px 10px $opaque;
+    }
+}
+
+.sm{
+    font-size: 1rem;
+}
+
+.md{
+    font-size: 2rem;
+}
+
+.lg{
+    font-size: 3rem;
+}
+
+.bold{
+    font-weight: bold;
+}
+
+.p-button{
+    text-align: right;
+}
+
+.hr{
+    height: 1px;
+    background-color: $dark-color;
+    width: 100%;
+    opacity: .4;
+    margin: 5px auto;
+}
+
+.opacity{
+    opacity: 0!important;
+    pointer-events: none;
+}
