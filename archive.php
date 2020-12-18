@@ -7,14 +7,6 @@
     <?php get_template_part('includes/section', 'archive'); ?>
     <?php previous_posts_link(); ?>
     <?php next_posts_link(); ?>
-
-    <script>
-        let blogContent = document.querySelectorAll('.excerpt');
-        
-        blogContent.forEach( excerpt => {
-            console.log(excerpt.textContent);
-        });
-    </script>
 </section>
 
 <?php get_footer(); ?>
