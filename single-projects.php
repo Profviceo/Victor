@@ -6,6 +6,11 @@
 </section>
 
 <section class="sidebar bg-white rounded pl-2 pr-1 pb-2 pt-1 shadow-ts">
+    <?php if(get_post_meta($post->ID, 'Hosted On', true)):?>
+        <?php echo get_post_meta($post->ID, 'Hosted On', true) ?>
+    <?php endif; ?>
+
+
     <?php if(is_active_sidebar('project-sidebar')): ?>
         <?php dynamic_sidebar('project-sidebar'); ?>
     <?php endif;?>

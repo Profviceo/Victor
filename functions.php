@@ -76,7 +76,7 @@ function project_post_type(){
         ),
         'public' => true,
         'has_archive' => true,
-        'supports' => array('title', 'editor', 'thumbnail'),
+        'supports' => array('title', 'editor', 'thumbnail', 'excerpt', 'custom-fields'),
     );
 
     register_post_type('projects', $projects);
